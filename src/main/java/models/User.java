@@ -8,19 +8,23 @@ import com.google.gson.annotations.SerializedName;
  */
 public class User {
 
-    @SerializedName("FIRST_NAME")
+    @SerializedName("id")
+    @Expose
+    public String id;
+
+    @SerializedName("first_name")
     @Expose
     public String firstName;
 
-    @SerializedName("LAST_NAME")
+    @SerializedName("last_name")
     @Expose
     public String lastName;
 
-    @SerializedName("SPOTIFY_ID")
+    @SerializedName("spotify_id")
     @Expose
     public String spotifyID;
 
-    @SerializedName("EMAIL")
+    @SerializedName("email")
     @Expose
     public String email;
 }

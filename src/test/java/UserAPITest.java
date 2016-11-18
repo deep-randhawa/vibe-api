@@ -8,6 +8,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -18,20 +19,22 @@ public class UserAPITest {
 
     @Test
     public void getAllUsersTest() throws InterruptedException, ExecutionException {
-        Call<User> user = Globals.userAPI.getAllUser();
-        CompletableFuture<User> futureUser = new CompletableFuture<>();
-        user.enqueue(new Callback<User>() {
-            public void onResponse(Call<User> call, Response<User> response) {
-                User user = response.body();
-                Integer statusCode = response.code();
-                futureUser.complete(user);
+        Call<List<User>> users = Globals.userAPI.getAllUser();
+        CompletableFuture<List<User>> futureUser = new CompletableFuture<>();
+        users.enqueue(new Callback<List<User>>() {
+            @Override
+            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+                futureUser.complete(response.body());
             }
 
-            public void onFailure(Call<User> call, Throwable t) {
-
+            @Override
+            public void onFailure(Call<List<User>> call, Throwable t) {
+                System.err.println(t.getMessage());
+                assert false;
             }
         });
-
+        assertThat(futureUser.isDone(), is(true));
+        assertThat(futureUser.get().size() > 1, is(true));
     }
 
 }
