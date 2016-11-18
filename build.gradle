@@ -1,0 +1,20 @@
+group 'randhawa.deep'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    // Retrofit libraries
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+
+    // JUnit libraries
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
