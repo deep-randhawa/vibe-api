@@ -1,4 +1,4 @@
-package models;
+package API.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -27,4 +27,11 @@ public class User {
     @SerializedName("email")
     @Expose
     public String email;
+
+    public User(String firstName, String lastName, String spotifyID, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.spotifyID = spotifyID;
+        this.email = email;
+    }
 }

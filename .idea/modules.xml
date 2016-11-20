@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vibe-api.iml" filepath="$PROJECT_DIR$/.idea/modules/vibe-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vibe-api_main.iml" filepath="$PROJECT_DIR$/.idea/modules/vibe-api_main.iml" group="vibe-api" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vibe-api_test.iml" filepath="$PROJECT_DIR$/.idea/modules/vibe-api_test.iml" group="vibe-api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/834065620/vibe-api.iml" filepath="$PROJECT_DIR$/.idea/modules/834065620/vibe-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/834065620/vibe-api_main.iml" filepath="$PROJECT_DIR$/.idea/modules/834065620/vibe-api_main.iml" group="vibe-api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/834065620/vibe-api_test.iml" filepath="$PROJECT_DIR$/.idea/modules/834065620/vibe-api_test.iml" group="vibe-api" />
     </modules>
   </component>
 </project>
