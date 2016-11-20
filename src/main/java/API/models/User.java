@@ -10,7 +10,7 @@ public class User {
 
     @SerializedName("id")
     @Expose
-    public String id;
+    public Integer id;
 
     @SerializedName("first_name")
     @Expose
@@ -28,10 +28,15 @@ public class User {
     @Expose
     public String email;
 
-    public User(String firstName, String lastName, String spotifyID, String email) {
+    public User(Integer id, String firstName, String lastName, String spotifyID, String email) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.spotifyID = spotifyID;
         this.email = email;
+    }
+
+    public User(String firstName, String lastName, String spotifyID, String email) {
+        this(null, firstName, lastName, spotifyID, email);
     }
 }

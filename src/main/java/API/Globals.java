@@ -4,10 +4,7 @@ import API.models.User;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.Body;
-import retrofit2.http.GET;
-import retrofit2.http.POST;
-import retrofit2.http.Path;
+import retrofit2.http.*;
 
 import java.util.List;
 
@@ -33,5 +30,11 @@ public class Globals {
 
         @POST("/user")
         Call<User> createNewUser(@Body User user);
+
+        @PUT("/user/{id}")
+        Call<String> modifyUser(@Path("id") Integer id, @Body User user);
+
+        @DELETE("/user/{id}")
+        Call<String> deleteUser(@Path("id") Integer id);
     }
 }
