@@ -1,7 +1,9 @@
 package API;
 
 import API.models.User;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import java.util.List;
 
@@ -10,37 +12,55 @@ import static org.junit.Assert.*;
 /**
  * Created by drandhaw on 11/20/16.
  */
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class UserAPITest {
     @Test
-    public void getAllUsers() throws Exception {
-        List<User> users = null;
+    public void t1_createNewUser() {
         try {
-            users = UserAPI.getAllUsers();
+            User user = UserAPI.createNewUser(new User("deep", "randhawa", "1", "drandhaw@purdue.edu"));
+            assertTrue(user.id != null);
         } catch (Throwable throwable) {
             assert false;
         }
-        assertTrue(users != null && users.size() > 0);
     }
 
     @Test
-    public void getUser() throws Exception {
-        User user = null;
+    public void t2_getAllUsers() {
         try {
-            user = UserAPI.getUser(1);
+            List<User> users = UserAPI.getAllUsers();
+            assertTrue(users != null && users.size() > 0);
         } catch (Throwable throwable) {
             assert false;
         }
-        assertTrue(user != null && user.id != null);
     }
 
     @Test
-    public void createNewUser() throws Exception {
-        User user = null;
+    public void t3_getUser() {
         try {
-            user = UserAPI.createNewUser(new User("deep", "randhawa", "1", "drandhaw@purdue.edu"));
+            User user = UserAPI.getUser(1);
+            assertTrue(user != null && user.id != null);
         } catch (Throwable throwable) {
             assert false;
         }
-        assertTrue(user.id != null);
+    }
+
+    @Test
+    public void t4_modifyUser() {
+        try {
+            String response = UserAPI.modifyUser(1, new User("new_deep", "new_randhawa", "1", "drandhaw@purdue.edu"));
+            assertTrue(response.contains("Success"));
+        } catch (Throwable throwable) {
+            assert false;
+        }
+    }
+
+    @Test
+    public void t5_deleteUser() {
+        try {
+            String response = UserAPI.deleteUser(1);
+            assertTrue(response.contains("Success"));
+        } catch (Throwable throwable) {
+            assert false;
+        }
     }
 }

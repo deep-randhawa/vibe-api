@@ -1,5 +1,6 @@
 package API;
 
+import API.models.Request;
 import API.models.User;
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -20,6 +21,7 @@ public class Globals {
 
 
     public static final UserAPI userAPI = retrofit.create(UserAPI.class);
+    public static final RequestAPI requestAPI = retrofit.create(RequestAPI.class);
 
     interface UserAPI {
         @GET("/user")
@@ -36,5 +38,16 @@ public class Globals {
 
         @DELETE("/user/{id}")
         Call<String> deleteUser(@Path("id") Integer id);
+    }
+
+    interface RequestAPI {
+        @GET("/request/{user_id}")
+        Call<List<Request>> getAllRequests(@Path("user_id") Integer userID);
+
+        @POST("/request")
+        Call<Request> createNewRequest(@Body Request request);
+
+        @DELETE("/request/{user_id}")
+        Call<String> deleteRequests(@Path("user_id") Integer userID);
     }
 }
